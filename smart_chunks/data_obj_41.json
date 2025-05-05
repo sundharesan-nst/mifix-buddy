@@ -1,0 +1,9 @@
+{
+    "tag": [
+        "SIM",
+        "slot1",
+        "User"
+    ],
+    "text": "**Q: Wrong SIM in slot1**\n**A:** User registered SIM in different slot kindly check",
+    "metadata": "QnA common queries.pdf"
+}

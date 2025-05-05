@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "Customer",
+        "Phone Number",
+        "OTP",
+        "Insurance"
+    ],
+    "text": "How Should the Customer\u2019s Phone Number be Handled?: Only the customer\u2019s phone number should be entered, and it must be valid since it will be used for OTP and insurance.",
+    "metadata": "QnA common queries.pdf"
+}

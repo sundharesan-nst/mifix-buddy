@@ -1,0 +1,12 @@
+{
+    "tag": [
+        "group",
+        "prospects",
+        "audit",
+        "credit review",
+        "penny drop",
+        "field verification"
+    ],
+    "text": "**Q: While editing the details the pop up message shows the group is in the different stage**\n**A:** once after group is created unless and until prospects are rejected in audit/credit review/penny drop/field verification we cannot edit the details.",
+    "metadata": "QnA common queries.pdf"
+}

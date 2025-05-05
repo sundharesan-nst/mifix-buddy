@@ -1,0 +1,9 @@
+{
+    "tag": [
+        "User ID",
+        "Password",
+        "confidential"
+    ],
+    "text": "Can the User ID and Password be Shared with Others?: No, the user ID and password are confidential and should not be shared.",
+    "metadata": "QnA common queries.pdf"
+}

@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "group",
+        "members",
+        "minimum number",
+        "4"
+    ],
+    "text": "**Q: What is the minimum number of members required to create a group?**\n**A:** A group must have a minimum of 4 members.",
+    "metadata": "QnA common queries.pdf"
+}

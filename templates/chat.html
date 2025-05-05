@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Bot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <style>
+    #image-preview-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    #image-preview-container div {
+      position: relative;
+      width: 50px;
+      height: 50px;
+    }
+
+    #image-preview-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    #image-preview-container button {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #1d1d33;
+      color: white;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #1d1d33;
+    }
+
+    h2 {
+      text-align: center;
+      color: black;
+      background-color: white;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .user-menu {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .user-icon {
+      font-size: 24px;
+      background-color: #93107e;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .user-icon:hover {
+      background-color: #7e0e69;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      background-color: #2e2e3e;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      width: 200px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      display: none;
+      animation: fadeIn 0.3s ease;
+      z-index: 1000;
+    }
+
+    .dropdown p {
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0;
+      padding-bottom: 8px;
+      color: #d1d1d1;
+      border-bottom: 1px solid #444;
+    }
+
+    #chat-form {
+      margin-top: -30px;
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      color: #d1d1d1;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+      gap: 8px;
+    }
+
+    .dropdown-item:hover {
+      background-color: #41414d;
+    }
+
+    .dropdown-item svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .logout-btn {
+      background-color: #d9534f;
+      color: white;
+      padding: 8px;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #c9302c;
+    }
+
+    .new-chat-btn {
+      display: flex;
+      align-items: center;
+      background-color: #1e90ff;
+      padding: 8px;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      width: 100%;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .new-chat-btn:hover {
+      background-color: #1c86e0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #new {
+      margin-right: 100px;
+      cursor: pointer;
+      padding: 9px;
+      background-color: red;
+      color: white;
+      width: 100%;
+      border-radius: 10px;
+
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #1d1d33;
+      color: white;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #1d1d33;
+    }
+
+    h2 {
+      text-align: center;
+      color: black;
+      background-color: white;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .user-menu {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: white;
+
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    #user {
+      background-color: #93107e;
+    }
+
+    .user-icon {
+      font-size: 24px;
+      background-color: #93107e;
+      padding: 10px;
+      border-radius: 50%;
+      display: flex;
+      margin-right: 100px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 45px;
+      right: 20px;
+      background-color: #2e2e3e;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      width: 180px;
+      display: none;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .dropdown p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .logout-btn {
+      background-color: #d9534f;
+      color: white;
+      padding: 8px;
+      width: 90%;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .logout-btn:hover {
+      background-color: #c9302c;
+    }
+
+    .dropdown::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      right: 10px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: transparent transparent #2e2e3e transparent;
+    }
+
+    body {
+      overflow: scroll;
+    }
+
+    #user {
+      color: white;
+    }
+
+    .container #chat-box {
+      font-family: sans-serif;
+    }
+
+    p {
+      font-size: 17px;
+      font-weight: 700;
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    #res {
+      z-index: 1;
+      background-color: grey;
+      width: 400px;
+      font-size: 17px;
+      margin-left: 88px;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      animation: left-msg-glow 1s ease infinite alternate;
+    }
+
+    h2 {
+      margin-top: -10px;
+      width: 90%;
+      background-color: white;
+    }
+
+    #res p {
+      font-weight: normal;
+    }
+
+    body {
+      overflow-y: hidden;
+    }
+
+    @keyframes left-msg-glow {
+      0% {
+        box-shadow: rgba(193, 192, 193, 0.308) 0px 0px 0px;
+      }
+
+      50% {
+        box-shadow: rgb(188, 184, 188) 0px 0px 10px;
+      }
+
+      100% {
+        box-shadow: rgb(193, 192, 193) 0px 0px 0px;
+      }
+    }
+
+    @keyframes right-msg-glow {
+      0% {
+        box-shadow: rgba(243, 28, 214, 0.199) 0px 0px 0px;
+      }
+
+      50% {
+        box-shadow: rgb(239, 101, 221) 0px 0px 10px;
+      }
+
+      100% {
+        box-shadow: rgb(243, 28, 214) 0px 0px 0px;
+      }
+    }
+
+    #user {
+      animation: right-msg-glow 1s ease infinite alternate;
+      margin-left: 70%;
+      word-wrap: break-word;
+      max-width: 450px;
+      padding: 15px;
+    }
+
+    #user p p {
+      font-size: 16px;
+    }
+
+    .user-message {
+      color: white;
+      /* Dark text color for better readability */
+      background-color: #93107e;
+      /* Light grey background */
+      padding: 5px;
+      border-radius: 5px;
+      margin-bottom: 2px;
+      /* Adds a little space between consecutive messages */
+      text-align: right;
+      max-width: 80%;
+      /* Adjust this as needed */
+      margin-left: auto;
+    }
+
+    /* Optionally style the "You:" part in bold */
+    .user-message strong {
+      font-weight: bold;
+    }
+
+    .bot-message {
+      color: white;
+      /* Set the text color to white */
+      background-color: #fcfafa;
+      /* Optional: Change the background to improve contrast */
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #0a0a47;
+      border-radius: 2px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      padding: 10px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #1d1d33;
+    }
+
+    /* Optional: Ensure strong contrast if changing the bot message background */
+    .bot-message strong {
+      color: #fff;
+    }
+
+    body {
+      background-color: #1d1d33;
+      background-image: url("");
+    }
+
+    h2 {
+      background-color: white;
+      padding: 4px;
+      border-radius: 6px;
+      margin-left: px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    #xx {
+      color: white;
+      font-weight: 700;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    }
+
+    .container {
+      padding: 20px;
+
+      margin: 0 auto;
+      margin-top: px;
+      /* Consider if this negative margin is necessary, as it might cause layout issues */
+      border-radius: 5px;
+      background-color: #1d1d33;
+      max-width: 90%;
+      /* Set a max-width to ensure container does not stretch too wide on larger screens */
+      box-sizing: border-box;
+      /* Include padding and border in the element's total width and height */
+    }
+
+    .white-text {
+      color: white;
+    }
+
+    .chat-box {
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #1d1d33;
+      width: 90%;
+      height: 68vh;
+      overflow: auto;
+    }
+
+    .input-box {
+      display: flex;
+      background-color: #f1f1f1;
+      padding: 20px;
+      position: absolute;
+      width: 85%;
+      /* Default width */
+      bottom: 0;
+      /* Position it at the bottom of the screen */
+      left: 50%;
+      /* Centering technique */
+      transform: translateX(-50%);
+      /* Centering technique */
+      z-index: 10;
+      border-radius: 5%;
+      box-sizing: border-box;
+      /* Ensure padding is included in width */
+    }
+
+
+    /* Adjustments for smaller screens */
+    @media (max-width: 768px) {
+      .input-box {
+        width: 95%;
+        /* Increase width to use more of the screen */
+        padding: 15px;
+        /* Slightly reduce padding */
+        bottom: 10px;
+        /* Adjust position if needed */
+      }
+    }
+
+    /* Further adjustments for very small screens */
+    @media (max-width: 480px) {
+      .input-box {
+        flex-direction: column;
+        /* Stack input and button vertically */
+        padding: 10px;
+      }
+
+      .input-box input[type="submit"] {
+        width: 100%;
+        /* Make the submit button full width */
+        margin-top: 10px;
+        /* Add space between the text input and submit button */
+        margin-left: 0;
+        /* Reset margin left */
+      }
+    }
+
+    .input-box input[type="text"] {
+      flex: 1;
+
+      color: white;
+      padding: 10px;
+      background-color: #1d1d33;
+      border: none;
+      border-radius: 15%;
+      border-radius: 5px;
+    }
+
+    .input-box input[type="submit"] {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background-color: #93107e;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .typewriter {
+      color: white;
+      overflow: hidden;
+      /* Ensures the content is not revealed until the animation */
+      /* The typwriter cursor */
+      white-space: nowrap;
+      /* Keeps the content on a single line */
+      margin: 0 auto;
+      /* Gives that scrolling effect as the typing happens */
+      letter-spacing: 0.15em;
+      /* Adjust as needed */
+      animation: typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+    }
+
+    /* The typing effect */
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    .logout-btn {
+      background-color: #d9534f;
+      color: white;
+      padding: 5px 10px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .logout-btn:hover {
+      background-color: #c9302c;
+    }
+
+    input[type="file"]:hover {
+      cursor: pointer;
+      outline: 2px solid #93107e;
+      /* Optional: Highlight color */
+    }
+
+    input[type="file"]:focus {
+      outline: 2px solid #1e90ff;
+      /* Optional: Focus color */
+      outline-offset: 2px;
+    }
+
+    input[type="file"] {
+      background-color: #1d1d33;
+      /* Match your background */
+      color: white;
+      /* Text color */
+      border: 1px solid #93107e;
+      /* Optional: Border */
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    .images_box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 color="black">MiFix Buddy</h2>
+    <div class="user-menu" onclick="toggleDropdown()">
+      <div class="user-icon">👤</div>
+    </div>
+
+    <div class="dropdown" id="userDropdown">
+      <p>Welcome, {{ user_id }}</p>
+      <div class="dropdown-item" onclick="startNewChat()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 11h-2v2a1 1 0 0 1-2 0v-2H7a1 1 0 0 1 0-2h2V9a1 1 0 0 1 2 0v2h2a1 1 0 0 1 0 2Z" />
+        </svg>
+        <span>New Chat</span>
+      </div>
+      <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </div>
+  </div>
+
+  <input type="hidden" id="latitude" name="latitude">
+  <input type="hidden" id="longitude" name="longitude">
+
+  <div class="chat-box" id="chat-box">
+    <!-- Chat history will be rendered here by JavaScript -->
+  </div>
+
+  <form id="chat-form" enctype="multipart/form-data">
+    <div class="input-box"
+      style="display: flex; flex-direction: column; background-color: white; border-radius: 10px; padding: 10px; border: 1px solid #ccc; width: 100%;">
+      <!-- Container for Image Previews -->
+      <div id="image-preview-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+        <!-- Multiple image previews will appear here -->
+      </div>
+
+      <!-- Input Field and Buttons -->
+      <div style="display: flex; align-items: center; flex-wrap: wrap;">
+        <input type="text" id="question" placeholder="Ask something..."
+          style="flex-grow: 1; border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-right: 10px;" />
+        <label for="image"
+          style="cursor: pointer; padding: 10px 20px; border-radius: 5px; background-color: #008CBA; color: white; margin-right: 10px;">Upload
+          Images</label>
+        <input type="file" id="image" accept="image/*" multiple style="display: none;" />
+        <input type="submit" value="Send"
+          style="padding: 10px 20px; border: none; border-radius: 5px; background-color: #93107e; color: white; cursor: pointer;" />
+      </div>
+    </div>
+
+    </div>
+
+
+  </form>
+
+  <script>
+    const chatHistory = {{ chat_history | tojson }};
+
+    // Select the chat box to display messages
+    const chatBox = document.getElementById("chat-box");
+
+    // Render the chat history using JavaScript only
+    chatHistory.forEach((chat) => {
+      const userMessage = document.createElement("div");
+      userMessage.id = "user";
+      userMessage.innerHTML = `<strong>User:</strong> ${chat.question}`;
+      chatBox.appendChild(userMessage);
+
+      if (chat.image_url) {
+        const userImage = document.createElement("img");
+        userImage.src = chat.image_url;
+        userImage.style.maxWidth = "150px";
+        userImage.style.borderRadius = "5px";
+        chatBox.appendChild(userImage);
+      }
+
+      const botMessage = document.createElement("div");
+      botMessage.id = "res";
+      typeOutResponse(botMessage, chat.answer);
+      chatBox.appendChild(botMessage);
+    });
+
+
+    function formatToHTML(inputText) {
+      return inputText.replace(/\n/g, "<br>");
+    }
+
+
+    function typeOutResponse(element, htmlContent) {
+  htmlContent = formatToHTML(htmlContent);
+  element.innerHTML = "";
+
+  // Split the HTML content into an array of characters
+  let contentArray = htmlContent.split("");
+  let cursorPosition = 0;
+  let tempContent = "";
+  let isTag = false;
+  let tagBuffer = "";
+
+  // Get the scrollable container (modify selector if needed)
+  let scrollContainer = element.closest(".chat-box") || document.documentElement;
+
+  let interval = setInterval(() => {
+    if (cursorPosition < contentArray.length) {
+      let char = contentArray[cursorPosition];
+      tempContent += char;
+
+      if (char === "<") {
+        isTag = true;
+        tagBuffer = "";
+      }
+
+      if (isTag) {
+        tagBuffer += char;
+        if (char === ">") {
+          isTag = false;
+        }
+      }
+
+      if (!isTag) {
+        element.innerHTML = tempContent;
+
+        // Smooth scrolling to the bottom while typing
+        scrollContainer.scrollTop = scrollContainer.scrollHeight;
+      }
+
+      cursorPosition++;
+    } else {
+      element.innerHTML = htmlContent;
+      clearInterval(interval);
+
+      // Final scroll to ensure it's fully visible
+      scrollContainer.scrollTop = scrollContainer.scrollHeight;
+    }
+  }, 10); // Adjust typing speed if needed
+}
+
+
+
+    window.addEventListener("load", () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            // Populate hidden inputs with location data
+            document.getElementById("latitude").value = position.coords.latitude;
+            document.getElementById("longitude").value = position.coords.longitude;
+          },
+          function (error) {
+            alert("Unable to fetch location. Please ensure location services are enabled.");
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    });
+
+    const imageInput = document.getElementById("image");
+    const previewContainer = document.getElementById("image-preview-container");
+    let img_file = [];
+
+    // Handle Image Selection
+    imageInput.addEventListener("change", function (event) {
+      img_file = [...img_file, ...Array.from(event.target.files)];
+
+      // Limit the number of images
+      if (img_file.length > 3) {
+        alert("You can only upload up to 3 images.");
+        img_file = img_file.slice(0, 3);
+      }
+
+      // Clear existing previews
+      previewContainer.innerHTML = "";
+
+      // Display Previews
+      img_file.forEach((file) => {
+        const blobUrl = URL.createObjectURL(file);
+
+        const imageContainer = document.createElement("div");
+        const imgElement = document.createElement("img");
+        const removeButton = document.createElement("button");
+
+        // Set image preview
+        imgElement.src = blobUrl;
+        imgElement.style.width = "50px";
+        imgElement.style.height = "50px";
+        imgElement.style.objectFit = "cover";
+        imgElement.style.borderRadius = "5px";
+
+        // Configure remove button
+        removeButton.innerHTML = "&times;";
+        removeButton.style.position = "absolute";
+        removeButton.style.top = "-5px";
+        removeButton.style.right = "-5px";
+        removeButton.style.backgroundColor = "red";
+        removeButton.style.color = "white";
+        removeButton.style.border = "none";
+        removeButton.style.borderRadius = "50%";
+        removeButton.style.width = "18px";
+        removeButton.style.height = "18px";
+        removeButton.style.cursor = "pointer";
+
+        // Handle removal
+        removeButton.addEventListener("click", function () {
+          previewContainer.removeChild(imageContainer);
+          img_file = img_file.filter((ele) => ele !== file);
+          const dataTransfer = new DataTransfer();
+          img_file.forEach((file) => dataTransfer.items.add(file));
+          imageInput.files = dataTransfer.files;
+        });
+
+        imageContainer.appendChild(imgElement);
+        imageContainer.appendChild(removeButton);
+        previewContainer.appendChild(imageContainer);
+      });
+
+      // Reset input files to reflect the updated list
+      const dataTransfer = new DataTransfer();
+      img_file.forEach((file) => dataTransfer.items.add(file));
+      imageInput.files = dataTransfer.files;
+    });
+
+    // Handle Form Submission
+    document.getElementById("chat-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const question = document.getElementById("question").value.trim();
+      const images = document.getElementById("image").files;
+      const latitude = document.getElementById("latitude").value;
+      const longitude = document.getElementById("longitude").value;
+      const chatBox = document.getElementById("chat-box");
+
+      // Validate Inputs
+      if (!question && images.length === 0) {
+        alert("Please enter a question or upload an image.");
+        return;
+      }
+
+      // Prepare FormData
+      const formData = new FormData();
+      formData.append("question", question);
+      formData.append("latitude", latitude);
+      formData.append("longitude", longitude);
+
+      if (images.length) {
+        formData.append("countImg", images.length);
+        Array.from(images).forEach((image, index) => {
+          formData.append(`img_${index + 1}`, image, image.name); // Append with original filename
+        });
+      }
+
+      // Display User Message in Chat Box
+      const userMessage = document.createElement("div");
+      userMessage.id = "user";
+      userMessage.innerHTML = `
+        <div style="background-color: #93107e; margin: 10px 0; border-radius: 10px; padding: 10px; color: white;">
+          <p id="xx" style="margin: 0; font-weight: bold;">User</p>
+          <p class="white-text" style="margin-top: 5px; font-size: 16px;">${question}</p>
+          <div class='images_box'>
+            ${Array.from(images)
+          .map(
+            (file) =>
+              `<img src="${URL.createObjectURL(file)}" style="max-width: 150px; border-radius: 5px; margin-top: 10px;" alt="${file.name}" />`
+          )
+          .join("")}
+          </div>
+        </div>
+      `;
+      chatBox.appendChild(userMessage);
+
+      // Send Data to Server
+      fetch("/search", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Display Bot Response
+          const botMessage = document.createElement("div");
+          botMessage.id = "res";
+          botMessage.innerHTML = ``;
+          res = `<p>${data.answer || "No response"}</p>`
+          chatBox.appendChild(botMessage);
+          typeOutResponse(botMessage,res)
+
+          // Scroll to Bottom
+          chatBox.scrollTop = chatBox.scrollHeight;
+        })
+        .catch((error) => console.error("Error:", error));
+
+      // Clear Inputs
+      img_file = [];
+      previewContainer.innerHTML = "";
+      document.getElementById("question").value = "";
+      document.getElementById("image").value = "";
+    });
+
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("userDropdown");
+      dropdown.style.display =
+        dropdown.style.display === "none" || dropdown.style.display === ""
+          ? "block"
+          : "none";
+    }
+
+    function startNewChat() {
+      document.getElementById("chat-box").innerHTML = "";
+      chatHistory.length = 0;
+
+      // Send a request to the backend to clear chat history
+      fetch("/clear_chat_history", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_id: "{{ user_id }}" }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            console.log("Chat history cleared.");
+          } else {
+            console.error("Failed to clear chat history.");
+          }
+        })
+        .catch((error) => console.error("Error:", error));
+    }
+
+
+  </script>
+
+</body>
+
+</html>

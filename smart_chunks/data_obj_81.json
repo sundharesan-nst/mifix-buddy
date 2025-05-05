@@ -1,0 +1,9 @@
+{
+    "tag": [
+        "group creation",
+        "group details",
+        "logging in"
+    ],
+    "text": "**Q: Can you edit the details after group creation?**\n**A:** Yes, the group details can be edited after logging in.",
+    "metadata": "QnA common queries.pdf"
+}

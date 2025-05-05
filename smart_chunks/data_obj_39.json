@@ -1,0 +1,14 @@
+{
+    "tag": [
+        "status",
+        "message",
+        "error",
+        "connect",
+        "ECONNREFUSED",
+        "59.144.54.60",
+        "27017",
+        "issue"
+    ],
+    "text": "**Q: \"status\":0,\"message\":\"Something went wrong!\",\"data\":null,\"error\":{ \"message\":\"connect ECONNREFUSED 59.144.54.60:27017\", \"reason\":{**\n**A:** We will check and update on this issue. Kindly wait for sometime.",
+    "metadata": "QnA common queries.pdf"
+}

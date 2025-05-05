@@ -1,0 +1,11 @@
+{
+    "tag": [
+        "Customer",
+        "Nominee",
+        "Details",
+        "Errors",
+        "Application"
+    ],
+    "text": "What Should be Done if Customer Nominee Details are Rejected?: Correct any flagged errors in the nominee details and resubmit the application.",
+    "metadata": "QnA common queries.pdf"
+}

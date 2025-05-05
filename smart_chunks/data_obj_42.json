@@ -1,0 +1,9 @@
+{
+    "tag": [
+        "mobile device",
+        "User",
+        "login"
+    ],
+    "text": "**Q: This is not registered mobile device**\n**A:** User is trying to login with different mobile device kindly check",
+    "metadata": "QnA common queries.pdf"
+}

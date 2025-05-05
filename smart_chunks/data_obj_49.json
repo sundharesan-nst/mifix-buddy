@@ -1,0 +1,12 @@
+{
+    "tag": [
+        "Bank details",
+        "L3 stage",
+        "Customer",
+        "annual income",
+        "3 lakhs",
+        "edit screen"
+    ],
+    "text": "**Q: Bank details capture failed in L3 stage**\n**A:** Customer annual income is greater than 3lakhs kindly check in edit screen",
+    "metadata": "QnA common queries.pdf"
+}

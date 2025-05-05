@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "group name",
+        "group head",
+        "address",
+        "pin code"
+    ],
+    "text": "**Q: How should the group name and group head be updated?**\n**A:** The group name and group head can be updated after creating the group, and details like address and pin code are displayed.",
+    "metadata": "QnA common queries.pdf"
+}

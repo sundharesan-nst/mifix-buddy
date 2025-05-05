@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "Error",
+        "Verification",
+        "FB login",
+        "Correction"
+    ],
+    "text": "What Happens if an Error is Flagged During Verification?: The flagged issue is returned to the FB login for correction.",
+    "metadata": "QnA common queries.pdf"
+}

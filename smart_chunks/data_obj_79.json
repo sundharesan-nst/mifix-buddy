@@ -1,0 +1,11 @@
+{
+    "tag": [
+        "customer",
+        "parents",
+        "sibling",
+        "brother",
+        "sister"
+    ],
+    "text": "**Q: What happens if both of the customer\u2019s parents are over 50?**\n**A:** The sibling (brother or sister) can be nominated if both parents are over 50.",
+    "metadata": "QnA common queries.pdf"
+}

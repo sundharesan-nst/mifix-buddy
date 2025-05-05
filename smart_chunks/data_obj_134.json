@@ -1,0 +1,12 @@
+{
+    "tag": [
+        "customer",
+        "income",
+        "limit",
+        "system",
+        "prospect",
+        "microfinance"
+    ],
+    "text": "**Q: What happens if a customer\u2019s income is higher than the limit?**\n**A:** The system will reject the prospect if the income exceeds the microfinance limit.",
+    "metadata": "QnA common queries.pdf"
+}

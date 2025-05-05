@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: #333;
+}
+
+.login-container {
+    background: #ffffff;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.flash-messages {
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.flash-messages p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4b6cb7;
+    outline: none;
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4b6cb7;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #182848;
+}
+
+.signup-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.signup-link a {
+    color: #4b6cb7;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+    </style> <!-- Link to external CSS file -->
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        <!-- Flash Messages for Success or Error Notifications -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              <div class="flash-messages">
+                  {% for message in messages %}
+                      <p>{{ message }}</p>
+                  {% endfor %}
+              </div>
+          {% endif %}
+        {% endwith %}
+
+        <form id="loginForm" action="/login" method="post" class="login-form">
+            <div class="form-group">
+                <label for="user_id">User ID:</label>
+                <input type="text" id="user_id" name="user_id" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <!-- Hidden Inputs for Location -->
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <p class="signup-link">Don't have an account? <a href="/">Sign up here</a></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            // Prevent form submission until location is captured
+            event.preventDefault();
+
+            // Check if Geolocation is available
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        // Populate hidden inputs with location data
+                        document.getElementById('latitude').value = position.coords.latitude;
+                        document.getElementById('longitude').value = position.coords.longitude;
+
+                        // Submit the form after location is fetched
+                        event.target.submit();
+                    },
+                    function(error) {
+                        alert("Unable to fetch location. Please ensure location services are enabled.");
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by your browser.");
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- <body>
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        Flash Messages for Success or Error Notifications 
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              <div class="flash-messages">
+                  {% for message in messages %}
+                      <p>{{ message }}</p>
+                  {% endfor %}
+              </div>
+          {% endif %}
+        {% endwith %}
+
+        <form id="loginForm" action="/login" method="post" class="login-form">
+            <div class="form-group">
+                <label for="user_id">User ID:</label>
+                <input type="text" id="user_id" name="user_id" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <p class="signup-link">Don't have an account? <a href="/">Sign up here</a></p>
+    </div>
+
+    JavaScript for Form Validation 
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            const userId = document.getElementById('user_id').value;
+            const password = document.getElementById('password').value;
+            let valid = true;
+            let errorMessage = '';
+
+            // Validate User ID
+            if (!userId) {
+                valid = false;
+                errorMessage += 'User ID is required.\n';
+            }
+
+            // Validate Password
+            if (!password) {
+                valid = false;
+                errorMessage += 'Password is required.\n';
+            } else if (password.length < 6) {
+                valid = false;
+                errorMessage += 'Password must be at least 6 characters long.\n';
+            }
+
+            // If validation fails, show alert and prevent form submission
+            if (!valid) {
+                alert(errorMessage);
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html> -->

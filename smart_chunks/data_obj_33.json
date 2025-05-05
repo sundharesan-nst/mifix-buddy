@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "Pop-up message",
+        "current address",
+        "length",
+        "characters"
+    ],
+    "text": "**Q: Pop-up message shows that current address should be below length of 35**\n**A:** Enter current address less than or equal to 35 characters",
+    "metadata": "QnA common queries.pdf"
+}

@@ -1,0 +1,9 @@
+{
+    "tag": [
+        "Aadhaar",
+        "customer",
+        "information"
+    ],
+    "text": "**Q: How do you verify the customer's Aadhaar information?**\n**A:** Aadhaar details are automatically fetched and cannot be edited.",
+    "metadata": "QnA common queries.pdf"
+}

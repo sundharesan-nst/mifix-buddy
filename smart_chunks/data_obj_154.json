@@ -1,0 +1,9 @@
+{
+    "tag": [
+        "Customer",
+        "PAN",
+        "Aadhaar"
+    ],
+    "text": "What Happens if a Customer\u2019s PAN and Aadhaar are Not Linked?: You cannot capture the PAN if it is not linked to Aadhaar, and it will cause issues later.",
+    "metadata": "QnA common queries.pdf"
+}

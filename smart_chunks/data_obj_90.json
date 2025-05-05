@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "customer",
+        "KYC address",
+        "voter ID",
+        "address proof"
+    ],
+    "text": "**Q: What is done if the customer lives at a different address than the KYC address?**\n**A:** The voter ID or other address proof should be uploaded.",
+    "metadata": "QnA common queries.pdf"
+}

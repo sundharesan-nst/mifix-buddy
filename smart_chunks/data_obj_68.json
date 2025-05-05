@@ -1,0 +1,11 @@
+{
+    "tag": [
+        "KYC",
+        "Aadhaar",
+        "Passport",
+        "voter ID",
+        "driving license"
+    ],
+    "text": "**Q: What other KYC documents can be used if Aadhaar is not available?**\n**A:** Passport, voter ID, and driving license can be used for KYC.",
+    "metadata": "QnA common queries.pdf"
+}

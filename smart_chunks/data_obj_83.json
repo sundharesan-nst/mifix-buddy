@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "group",
+        "members",
+        "maximum number",
+        "10"
+    ],
+    "text": "**Q: What is the maximum number of members allowed in a group?**\n**A:** A group can have up to 10 members.",
+    "metadata": "QnA common queries.pdf"
+}

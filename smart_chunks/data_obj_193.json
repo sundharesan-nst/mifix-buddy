@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "Customer",
+        "KYC",
+        "father's name",
+        "Aadhaar"
+    ],
+    "text": "What Details Can be Edited in the Customer's KYC?: Only the father\u2019s name can be edited; other details from Aadhaar cannot be changed.",
+    "metadata": "QnA common queries.pdf"
+}

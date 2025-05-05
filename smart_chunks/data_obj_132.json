@@ -1,0 +1,11 @@
+{
+    "tag": [
+        "customer",
+        "KYC",
+        "address",
+        "Aadhaar",
+        "onboarding"
+    ],
+    "text": "**Q: Can the customer\u2019s KYC address be updated?**\n**A:** No, the customer\u2019s KYC address from Aadhaar cannot be updated during onboarding.",
+    "metadata": "QnA common queries.pdf"
+}

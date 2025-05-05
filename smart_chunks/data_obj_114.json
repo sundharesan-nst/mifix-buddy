@@ -1,0 +1,12 @@
+{
+    "tag": [
+        "nominee",
+        "relationship",
+        "dropdown menu",
+        "spouse",
+        "child",
+        "sibling"
+    ],
+    "text": "**Q: How is the nominee's relationship updated?**\n**A:** The nominee's relationship is selected from a dropdown menu with options like spouse, child, or sibling.",
+    "metadata": "QnA common queries.pdf"
+}

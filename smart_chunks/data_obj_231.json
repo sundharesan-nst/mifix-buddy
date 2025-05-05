@@ -1,0 +1,11 @@
+{
+    "tag": [
+        "Customer",
+        "Nominee",
+        "KYC",
+        "System",
+        "Confirmation"
+    ],
+    "text": "What Happens After Successful Submission of Customer Details?: The customer\u2019s nominee and KYC details are saved in the system, and confirmation is sent to the customer.",
+    "metadata": "QnA common queries.pdf"
+}

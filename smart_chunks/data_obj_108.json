@@ -1,0 +1,9 @@
+{
+    "tag": [
+        "customer",
+        "photo",
+        "clarity"
+    ],
+    "text": "**Q: What do you do after taking a customer\u2019s photo?**\n**A:** Check the photo for clarity; if unclear, delete it and capture a new one.",
+    "metadata": "QnA common queries.pdf"
+}

@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "group head",
+        "KYC details",
+        "system",
+        "error"
+    ],
+    "text": "**Q: What happens if the group head\u2019s KYC details are incorrect?**\n**A:** The system will flag the error, and you will need to correct the KYC details.",
+    "metadata": "QnA common queries.pdf"
+}

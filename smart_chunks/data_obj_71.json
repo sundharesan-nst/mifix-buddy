@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "SMS KYC",
+        "address",
+        "landmark",
+        "customer details"
+    ],
+    "text": "**Q: What should be updated in the customer\u2019s current details?**\n**A:** The SMS KYC address and the mandatory landmark should be updated.",
+    "metadata": "QnA common queries.pdf"
+}

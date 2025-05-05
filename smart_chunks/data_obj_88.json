@@ -1,0 +1,9 @@
+{
+    "tag": [
+        "system",
+        "errors",
+        "details"
+    ],
+    "text": "**Q: What happens if you submit incorrect details?**\n**A:** The system will highlight the errors, and you will need to correct and resubmit the details.",
+    "metadata": "QnA common queries.pdf"
+}

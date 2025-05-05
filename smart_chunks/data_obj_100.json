@@ -1,0 +1,15 @@
+{
+    "tag": [
+        "customer",
+        "income",
+        "\u20b925,000",
+        "month",
+        "system",
+        "prospect",
+        "limit",
+        "microfinance",
+        "loans"
+    ],
+    "text": "**Q: What happens if the customer income is above \u20b925,000 per month?**\n**A:** The system will reject the prospect if the income exceeds the limit for microfinance loans.",
+    "metadata": "QnA common queries.pdf"
+}

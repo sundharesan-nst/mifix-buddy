@@ -1,0 +1,9 @@
+{
+    "tag": [
+        "Customer",
+        "Aadhar number",
+        "user"
+    ],
+    "text": "**Q: Customer already present with this Aadhar number**\n**A:** customer is already onboarded, so user cannot onboard again",
+    "metadata": "QnA common queries.pdf"
+}

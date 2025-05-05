@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "customer details",
+        "red",
+        "update",
+        "system"
+    ],
+    "text": "**Q: What should you do if customer details appear in red?**\n**A:** It indicates that an update was missed, and the system will prompt you to correct it.",
+    "metadata": "QnA common queries.pdf"
+}

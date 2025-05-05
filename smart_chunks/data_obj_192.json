@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "Customer",
+        "Phone Number",
+        "OTP",
+        "Process"
+    ],
+    "text": "What Happens if a Customer\u2019s Phone Number is Invalid?: The customer will not receive the OTP, and the process will be halted.",
+    "metadata": "QnA common queries.pdf"
+}

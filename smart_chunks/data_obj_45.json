@@ -1,0 +1,11 @@
+{
+    "tag": [
+        "EKYC",
+        "Resident authentication",
+        "finger print",
+        "customer",
+        "aadhar details"
+    ],
+    "text": "**Q: EKYC- Resident authentication failed**\n**A:** Kindly capture the finger print properly, if still the same error, ask customer to update the aadhar details",
+    "metadata": "QnA common queries.pdf"
+}

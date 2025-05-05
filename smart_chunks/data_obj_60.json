@@ -1,0 +1,8 @@
+{
+    "tag": [
+        "Password reset",
+        "first login"
+    ],
+    "text": "**Q: What is the first task after logging in?**\n**A:** Password reset is mandatory upon first login.",
+    "metadata": "QnA common queries.pdf"
+}

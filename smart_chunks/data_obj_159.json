@@ -1,0 +1,12 @@
+{
+    "tag": [
+        "Customer",
+        "Income",
+        "Income Type",
+        "Monthly",
+        "Weekly",
+        "Proof"
+    ],
+    "text": "How Do You Handle Customer Income Details?: Select the customer\u2019s income type (monthly, weekly, etc.) and capture any proof if available.",
+    "metadata": "QnA common queries.pdf"
+}

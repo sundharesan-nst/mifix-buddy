@@ -1,0 +1,11 @@
+{
+    "tag": [
+        "customer",
+        "parents",
+        "father",
+        "mother",
+        "nominees"
+    ],
+    "text": "**Q: Who should be nominated if the customer is single?**\n**A:** The parents (father or mother) should be the primary nominees.",
+    "metadata": "QnA common queries.pdf"
+}

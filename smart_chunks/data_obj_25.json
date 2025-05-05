@@ -1,0 +1,12 @@
+{
+    "tag": [
+        "IFSC",
+        "master data",
+        "prospect",
+        "bank details",
+        "customer",
+        "master table"
+    ],
+    "text": "**Q: IFSC not in master data**\n**A:** Kindly enter the prospect's alternate bank details. If the customer does not have the alternate bank details. Kindly share the IFSC code that the customer is having, will update the IFSC in the master table and revert you back.",
+    "metadata": "QnA common queries.pdf"
+}

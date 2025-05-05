@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "Time-based Password Option",
+        "login",
+        "password reset",
+        "first login"
+    ],
+    "text": "What is the Importance of the Time-based Password Option?: It is required during login, and password reset is mandatory upon the first login.",
+    "metadata": "QnA common queries.pdf"
+}

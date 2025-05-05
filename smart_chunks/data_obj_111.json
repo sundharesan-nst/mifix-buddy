@@ -1,0 +1,8 @@
+{
+    "tag": [
+        "customer",
+        "PAN card"
+    ],
+    "text": "**Q: What happens if the customer has no PAN card?**\n**A:** Select \"Not Available\" and proceed without the PAN.",
+    "metadata": "QnA common queries.pdf"
+}

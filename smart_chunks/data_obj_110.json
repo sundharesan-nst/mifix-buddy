@@ -1,0 +1,11 @@
+{
+    "tag": [
+        "neighbor",
+        "phone number",
+        "customer registration",
+        "customer",
+        "valid phone number"
+    ],
+    "text": "**Q: Can you use a neighbor\u2019s phone number for customer registration?**\n**A:** No, only the customer\u2019s valid phone number should be used.",
+    "metadata": "QnA common queries.pdf"
+}

@@ -1,0 +1,11 @@
+{
+    "tag": [
+        "Authentication error",
+        "UserName",
+        "Password",
+        "User ID",
+        "HR team"
+    ],
+    "text": "**Q: Authentication error. UserName Or Password Invalid!**\n**A:** User ID is not created kindly check with HR team",
+    "metadata": "QnA common queries.pdf"
+}

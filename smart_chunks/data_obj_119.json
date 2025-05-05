@@ -1,0 +1,10 @@
+{
+    "tag": [
+        "system",
+        "errors",
+        "submission",
+        "resubmission"
+    ],
+    "text": "**Q: How do you check for errors after submission?**\n**A:** The system will highlight errors, which can be corrected before resubmission.",
+    "metadata": "QnA common queries.pdf"
+}
